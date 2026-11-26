@@ -83,3 +83,24 @@ footer{height:96px}
 
 /* The hero asset has its own alpha channel; preserve its full silhouette. */
 .hero-image{mask-image:none;mix-blend-mode:normal}
+/* Service cards: editorial structure with a diagonal image and contact link. */
+.services{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.service.service-editorial{min-height:570px;padding:28px;isolation:isolate;transition:box-shadow .3s}
+.service-editorial:hover{box-shadow:0 12px 32px #00000008}
+.service-editorial>.service-top{display:flex;align-items:center;justify-content:space-between;position:relative;z-index:2;margin-bottom:30px}
+.service-editorial .service-number{margin:0;font-size:13px;color:#777;letter-spacing:.04em;font-variant-numeric:tabular-nums}
+.service-editorial .service-top svg{margin:0;width:28px;height:28px;stroke-width:1.4}
+.service-editorial>.service-copy{position:relative;z-index:2}
+.service-editorial .service-copy h3{min-height:62px;max-width:100%;font-size:27px;line-height:1.12;letter-spacing:-.04em}
+.service-editorial .service-copy p{margin:17px 0 0;max-width:95%;min-height:84px;font-size:15px;line-height:1.5;text-shadow:none}
+.service-editorial .service-meta{margin-top:23px}
+.service-editorial .service-meta strong{font-size:23px;line-height:1.2}
+.service-editorial .service-meta span{font-size:14px;margin-top:9px;color:#555}
+.service-editorial .service-arrow{width:46px;height:46px;border:1px solid #ff6b00;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin-top:25px;background:#fff;transition:background .25s,transform .25s}
+.service-editorial .service-arrow svg{width:20px;height:20px;margin:0;color:#ff6b00;stroke-width:1.5}
+.service-editorial .service-arrow:hover{background:#ff6b00;transform:translateX(3px)}
+.service-editorial .service-arrow:hover svg{color:#fff}
+.service.service-editorial>img{top:auto;right:0;bottom:0;width:100%;height:54%;border-radius:0;transform:none;opacity:1;mask-image:none;object-fit:cover;object-position:center;clip-path:polygon(100% 0,100% 100%,0 100%,0 87%);z-index:0}
+@media(min-width:761px) and (max-width:1050px){.service.service-editorial{padding:23px;min-height:600px}.service-editorial .service-copy h3{font-size:23px;min-height:58px}.service-editorial .service-copy p{min-height:115px;max-width:100%;font-size:14px}.service-editorial .service-meta strong{font-size:21px}.services{gap:16px}}
+@media(max-width:760px){.services{grid-template-columns:minmax(0,1fr);gap:20px}.service.service-editorial{padding:26px;min-height:545px}.service-editorial>.service-top{margin-bottom:28px}.service-editorial .service-copy h3{font-size:27px;min-height:0}.service-editorial .service-copy p{max-width:90%;min-height:0;margin-top:18px}.service-editorial .service-meta{margin-top:24px}.service-editorial .service-arrow{margin-top:24px}.service.service-editorial>img{height:48%;object-position:center}}
+@media(prefers-reduced-motion:reduce){.service-editorial .service-arrow:hover{transform:none}}
