@@ -43,3 +43,52 @@ prev.addEventListener('click',()=>move(-1));next.addEventListener('click',()=>mo
 // Keep short Russian prepositions and conjunctions with the next word.
 const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:n=>n.parentElement.closest('script,style,svg')?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT});
 while(walker.nextNode()){const node=walker.currentNode;node.nodeValue=node.nodeValue.replace(/(^|[\s(—])([ВвКкСсУуОоИиАа]|[Нн]а|[Пп]о|[Ии]з|[Зз]а|[Оо]т|[Дд]о|[Нн]е|[Нн]о|[Сс]о|[Вв]о|[Бб]ез|[Дд]ля|[Пп]ри|[Нн]ад|[Пп]од|[Пп]ро|[Чч]ерез) +(?=\S)/g,'$1$2\u00a0').replace(/(\d) (?=\d{3}\b|BYN\b)/g,'$1\u00a0');}
+
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+const accordionAnimations = new WeakMap();
+document.querySelectorAll('.accordion details').forEach((details,index) => {
+ const summary = details.querySelector('summary');
+ const content = details.querySelector('p');
+ content.id = `development-description-${index}`;
+ summary.setAttribute('aria-controls',content.id);
+ summary.setAttribute('aria-expanded','false');
+ summary.addEventListener('click',event => {
+  event.preventDefault();
+  const expand = !details.classList.contains('is-expanded');
+  const startHeight = details.offsetHeight;
+  accordionAnimations.get(details)?.cancel();
+  details.classList.toggle('is-expanded',expand);
+  summary.setAttribute('aria-expanded',String(expand));
+  if(reducedMotion.matches || !details.animate){details.open=expand;details.style.overflow='';return;}
+  // Keep native details open while closing so its content can animate out.
+  details.open = true;
+  const endHeight = expand ? details.offsetHeight : summary.offsetHeight;
+  details.style.overflow = 'hidden';
+  const animation = details.animate(
+   [{height:`${startHeight}px`},{height:`${endHeight}px`}],
+   {duration:360,easing:'cubic-bezier(.22,.68,.25,1)'}
+  );
+  accordionAnimations.set(details,animation);
+  animation.onfinish = () => {
+   details.open=expand;
+   details.style.overflow='';
+   accordionAnimations.delete(details);
+  };
+ });
+});
+
+if('IntersectionObserver' in window && !reducedMotion.matches){
+ const targets = document.querySelectorAll('header, .hero-copy > *, .hero-image, .about > *, #benefits .section-top, .benefits, #development h2, .accordion > details, .stages h2, .stage, #pricing > *, .contact, footer');
+ const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+   if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target);}
+  });
+ },{threshold:0.08,rootMargin:'0px 0px -20px 0px'});
+ targets.forEach((el,index) => {
+  el.style.setProperty('--reveal-delay',`${(index%3)*60}ms`);
+  el.classList.add('reveal');observer.observe(el);
+ });
+ reducedMotion.addEventListener('change',event => {
+  if(event.matches){targets.forEach(el=>el.classList.add('is-visible'));observer.disconnect();}
+ });
+}
