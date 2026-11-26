@@ -2,3 +2,81 @@
 .hero-image{mask-image:linear-gradient(to right,transparent,#000 7%,#000 94%,transparent);mask-composite:intersect}.service>img{mask-image:linear-gradient(to right,transparent,#000 30%)}.features{grid-template-columns:repeat(4,minmax(0,1fr))}.benefits{grid-template-columns:repeat(4,minmax(0,1fr))}@media(max-width:760px){.metrics>div{min-width:0;flex:1}.metrics{gap:18px}.metrics>div+div{padding-left:18px}.features{grid-template-columns:repeat(2,minmax(0,1fr))}.features h3{font-size:15px}.features article{padding:18px}.benefits{grid-template-columns:repeat(2,minmax(0,1fr))}.benefits article{min-width:0}.benefits h3{overflow-wrap:anywhere}.hero-image{mask-image:linear-gradient(to bottom,transparent,#000 6%,#000 94%,transparent)}}
 @media(min-width:761px) and (max-width:1050px){.features{grid-template-columns:repeat(2,minmax(0,1fr))}.features article{min-height:100px;padding:14px 18px}.features h3 br{display:none}.features svg{margin-bottom:5px}.hero-image{width:51%;mask-image:linear-gradient(to right,transparent,#000 18%,#000 94%,transparent)}.hero-copy>p{max-width:92%}.benefits article{grid-template-columns:1fr}.benefits h3{min-height:38px}}
 @media(min-width:761px) and (max-width:1050px){.features h3 br{display:initial}}
+/* Spacing rhythm: generous sections, comfortable card padding. */
+header{height:88px}
+h2{margin-bottom:26px}
+p{line-height:1.5}
+.hero{padding-top:28px;padding-bottom:60px;min-height:560px}
+.hero-image{top:14px;height:510px}
+.metrics{margin-bottom:36px}
+h1{margin-bottom:24px;line-height:1.04}
+.actions{margin-top:32px;gap:20px}
+.about{margin-top:24px;margin-bottom:72px;gap:28px;grid-template-columns:minmax(0,40%) minmax(0,1fr)}
+.about p{line-height:1.55}
+.features{gap:16px}
+.features article{padding:26px 20px;min-height:148px}
+section.wrap:not(.hero):not(.about){margin-bottom:68px}
+.services{gap:20px}
+.service{min-height:300px;padding:28px 24px}
+.service>img{top:32px;height:242px}
+.service h3{min-height:62px}
+.service span{margin-top:10px}
+.service p{margin-top:28px;line-height:1.5}
+.accordion{gap:12px 24px}
+.accordion button{padding:15px 24px;gap:26px;min-height:54px}
+.accordion-panel p{padding-left:73px;line-height:1.55}
+.accordion-item.open p{padding-bottom:24px}
+.benefits{gap:20px}
+.benefits article{padding:25px 23px;gap:17px 14px;align-content:start}
+.benefits p{line-height:1.5}
+.stages{gap:6%;grid-template-columns:36% 58%}
+.stages li{min-height:37px}
+.pricing{gap:28px;grid-template-columns:minmax(0,54%) minmax(0,1fr)}
+.price-table{padding:15px 20px}
+.price-table>div{padding:12px 10px}
+.free{padding:25px;gap:22px}
+.notes{margin-top:20px;line-height:1.5}
+.notes li+li{margin-top:10px}
+.contact{margin-top:12px;padding:38px 28px}
+.contact h2{margin-bottom:12px}
+.contact p{line-height:1.45}
+.contact .button{margin-top:24px;margin-bottom:16px}
+footer{height:96px}
+@media(min-width:761px) and (max-width:1050px){
+ .hero{min-height:580px}.about{gap:24px}.features article{padding:20px 18px;min-height:125px}.features svg{margin-bottom:10px}.service{padding:24px 20px;min-height:340px}.service h3{font-size:22px;min-height:66px}.service p{max-width:80%}.benefits{gap:14px}.benefits article{padding:22px 18px}.price-table>div{padding:12px 0;font-size:14px}.price-table strong{font-size:17px}
+}
+@media(max-width:760px){
+ header{height:auto;padding-top:20px;padding-bottom:18px;row-gap:18px}
+ .hero{padding-top:28px;padding-bottom:38px;min-height:0}
+ .hero-image{top:0;height:auto;margin-top:32px}
+ .metrics{margin-bottom:30px}
+ h1{margin-bottom:22px}
+ h2{margin-bottom:24px}
+ .actions{gap:14px;margin-top:26px}
+ .about{margin-top:12px;margin-bottom:52px}
+ .features{margin-top:28px;gap:12px}
+ .features article{padding:22px 18px;min-height:130px}
+ section.wrap:not(.hero):not(.about){margin-bottom:52px}
+ .services{gap:18px}
+ .service{min-height:280px;padding:26px 23px}
+ .service>img{top:24px;height:235px}
+ .service h3{min-height:52px;font-size:25px}
+ .service p{max-width:58%;margin-top:26px}
+ .accordion{gap:12px}
+ .accordion button{padding:15px 18px;gap:18px;line-height:1.4}
+ .accordion-panel p{padding-left:59px;padding-right:22px}
+ .benefits{gap:14px}
+ .benefits article{padding:22px 18px;grid-template-columns:1fr;gap:14px}
+ .benefits h3{min-height:38px;overflow-wrap:normal}
+ .stages{grid-template-columns:1fr;gap:24px}
+ .stages li{min-height:38px}
+ .pricing{grid-template-columns:minmax(0,1fr);gap:24px}
+ .price-table{padding:14px 16px}
+ .price-table>div{padding:12px 0;font-size:13px;column-gap:10px;grid-template-columns:minmax(0,56%) minmax(0,1fr)}
+ .price-table strong{font-size:16px}
+ .free{padding:23px 20px}
+ .contact{margin-top:8px;padding:32px 20px}
+ .contact h2{font-size:30px;line-height:1.1}
+ .contact p{font-size:16px}
+ footer{height:auto;padding-top:28px;padding-bottom:28px;row-gap:24px}
+}

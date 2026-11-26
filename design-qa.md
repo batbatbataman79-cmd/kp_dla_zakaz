@@ -11,6 +11,8 @@ Responsive check at 390px: found card-grid overflow, changed grid minimum sizing
 
 Visual fixes: softened image edges and card imagery to protect text readability. Typography uses Arial with compact headings and regular weights to match the source. Image content differs intentionally; exact source raster reconstruction is not claimed.
 
-Remaining P3: generated hero has English microcopy on its laptop screen; the website copy is Russian.
+Images replaced with the four exact user-supplied PNG files: hero, shop, corporate, landing. Byte hashes matched the source attachments.
+
+Spacing update: desktop section gaps 68px, mobile 52px, wider card gaps and padding, increased text line height. Verified accordion expansion/collapse and zero browser console errors. At mobile width: clientWidth=375, scrollWidth=375. User-requested spacing changes intentionally supersede the original compact reference.
 
 final result: passed
