@@ -80,3 +80,6 @@ footer{height:96px}
  .contact p{font-size:16px}
  footer{height:auto;padding-top:28px;padding-bottom:28px;row-gap:24px}
 }
+
+/* The hero asset has its own alpha channel; preserve its full silhouette. */
+.hero-image{mask-image:none;mix-blend-mode:normal}
